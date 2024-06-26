@@ -13,11 +13,13 @@ public class Group implements CompositeNode {
 	private DefaultMutableTreeNode groupNode;
 	private String groupID;
 	private List<CompositeNode> nodes;
+	private long creationTime;
 	
 	public Group(String groupID) {
 		groupNode = new DefaultMutableTreeNode(this);
 		this.groupID = groupID;
 		nodes = new ArrayList<>();
+		creationTime = System.currentTimeMillis();
 	}
 	
 	@Override
@@ -82,5 +84,10 @@ public class Group implements CompositeNode {
 			}
 		}
 		return users;
+	}
+	
+	//AS3: getter for new field
+	public long getCreationTime() {
+		return this.creationTime;
 	}
 }

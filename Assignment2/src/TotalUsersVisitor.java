@@ -35,5 +35,4 @@ public class TotalUsersVisitor implements Visitor {
 	public int getTotalUsers() {
 		return count;
 	}
-
 }

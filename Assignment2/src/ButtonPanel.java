@@ -25,6 +25,8 @@ public class ButtonPanel extends JPanel {
 		addButton(new JButton("Show Group Total"), new TotalGroupsVisitor());
 		addButton(new JButton("Show Messages Total"), new TotalMessagesVisitor());
 		addButton(new JButton("Show Positive Percentage"), new PositivePercentageVisitor());
+		addButton(new JButton("Show ID Verification"), new IDVerificationVisitor());
+		addButton(new JButton("Show User With Last Update"), new LastUpdatedUserVisitor());
 	}
 	
 	public void addButton(JButton button, Visitor visitor) {

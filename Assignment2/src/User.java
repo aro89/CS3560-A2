@@ -13,16 +13,20 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 public class User extends Subject implements CompositeNode, Observer {
 	private DefaultMutableTreeNode userNode;
-    private String userID;
-    private Set<User> followings;
-    private List<String> newsFeed;
-    private int messageCount;
+	private String userID;
+	private Set<User> followings;
+	private List<String> newsFeed;
+	private int messageCount;
+	private long creationTime;
+	private long lastUpdateTime;
     
-    public User(String userID) {
-        this.userID = userID;
-        followings = new HashSet<>();
-        newsFeed = new ArrayList<>();
-        userNode = new DefaultMutableTreeNode(this);
+	public User(String userID) {
+		this.userID = userID;
+		followings = new HashSet<>();
+		newsFeed = new ArrayList<>();
+		userNode = new DefaultMutableTreeNode(this);
+		creationTime = System.currentTimeMillis();
+		lastUpdateTime = creationTime;
     }
     
 	@Override
@@ -54,6 +58,7 @@ public class User extends Subject implements CompositeNode, Observer {
 			}
 			else {
 				this.newsFeed.add(((User) subject).getID() + ": " + message);
+				this.lastUpdateTime = System.currentTimeMillis();
 				this.getUserView().update(this, message);
 			}
 		}
@@ -72,6 +77,7 @@ public class User extends Subject implements CompositeNode, Observer {
 	public void addMessage(String message) {
 		this.newsFeed.add(this.getID() + ": " + message);
 		messageCount++;
+		this.lastUpdateTime = System.currentTimeMillis();
 		this.notifyObservers(message);
 	}
 	
@@ -107,5 +113,14 @@ public class User extends Subject implements CompositeNode, Observer {
 			result += msg + "\n";
 		}
 		return result;
+	}
+	
+	//AS3: getters for new fields
+	public long getCreationTime() {
+		return this.creationTime;
+	}
+	
+	public long getLastUpdateTime() {
+		return this.lastUpdateTime;
 	}
 }

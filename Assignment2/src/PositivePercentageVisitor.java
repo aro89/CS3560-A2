@@ -56,5 +56,4 @@ public class PositivePercentageVisitor implements Visitor {
 			return Math.round(numPositiveMessages / totalMessages * 100);
 		}
 	}
-
 }

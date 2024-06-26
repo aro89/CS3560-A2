@@ -16,28 +16,27 @@ import javax.swing.tree.TreePath;
 public class TreePanel extends JPanel {
 	private CompositeNode root;
 	private JTree tree;
-    private DefaultMutableTreeNode node;
-    private DefaultMutableTreeNode groupNode;
+	private DefaultMutableTreeNode node;
+	private DefaultMutableTreeNode groupNode;
     
-    public TreePanel() {
-    	super();
-    	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-    	root = new Group("Root");
-    	groupNode = root.getCompositeNode();
-    	tree = new JTree(root.getCompositeNode());
+	public TreePanel() {
+		super();
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		root = new Group("Root");
+		groupNode = root.getCompositeNode();
+		tree = new JTree(root.getCompositeNode());
     	
     	//Sample Data
-    	add(new User("John"));
-    	add(new User("Bob"));
-    	add(new User("Steve"));
-    	add(new Group("CS356"));
+		add(new User("John"));
+		add(new User("Bob"));
+		add(new User("Steve"));
+		add(new Group("CS356"));
 
-    	setTreeListener();
-    	JScrollPane view = new JScrollPane(tree);
-        JLabel label = new JLabel("Tree View: ");
-        add(label);
-        add(view);
-        
+		setTreeListener();
+		JScrollPane view = new JScrollPane(tree);
+		JLabel label = new JLabel("Tree View: ");
+		add(label);
+		add(view);
     }
     
     public void setTreeListener()  {
@@ -62,8 +61,7 @@ public class TreePanel extends JPanel {
     }
     
     public void add(CompositeNode cn) {
-    	DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
-    	
+  	DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
     	if (((CompositeNode) groupNode.getUserObject()).addCompositeNode(cn)) {
     		model.nodesWereInserted(groupNode, new int[] {groupNode.getChildCount() - 1});
     		tree.scrollPathToVisible(new TreePath(cn.getCompositeNode().getPath()));

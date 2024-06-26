@@ -36,5 +36,4 @@ public class TotalMessagesVisitor implements Visitor {
 	public int getTotalMessages() {
 		return count;
 	}
-
 }

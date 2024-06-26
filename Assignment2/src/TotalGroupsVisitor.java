@@ -34,5 +34,4 @@ public class TotalGroupsVisitor implements Visitor {
 	public int getTotalGroups() {
 		return count;
 	}
-
 }
