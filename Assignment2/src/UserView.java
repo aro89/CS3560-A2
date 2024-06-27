@@ -87,9 +87,9 @@ public class UserView extends JFrame implements Observer{
 		add(main);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        pack();
-        setLocationRelativeTo(getRootPane());
-        setVisible(true);
+        	pack();
+        	setLocationRelativeTo(getRootPane());
+        	setVisible(true);
 	}
 
 	@Override
