@@ -33,14 +33,14 @@ public class AdminControlPanel extends JFrame {
 	private AdminControlPanel() {
 		JFrame frame = new JFrame("Mini Twitter");
        
-        //GridLayout(int rows, int columns)
+        	//GridLayout(int rows, int columns)
 		main = new JPanel(new GridLayout(1, 2));
 		tree = new TreePanel();
 		main.add(tree);
 		right = new JPanel(new GridLayout(3, 1));
 		JPanel rightTextAndButton = new JPanel(new GridLayout(2, 1));
         
-        //Add Text and Buttons on the top Right Panel
+        	//Add Text and Buttons on the top Right Panel
 		user = new TextAndButtonPanel("Add User");
 		user.getButton().addActionListener((ActionListener) new ActionListener() {
 			@Override
@@ -67,7 +67,7 @@ public class AdminControlPanel extends JFrame {
 		right.add(rightTextAndButton);
         
         
-        //Add Open User View Option
+        	//Add Open User View Option
 		JPanel rightUserViewButton = new JPanel(new GridLayout(2, 1));
 		userView = new JButton("Open User View");
 		userView.addActionListener(new ActionListener() {
@@ -85,7 +85,7 @@ public class AdminControlPanel extends JFrame {
 		rightUserViewButton.add(userView);
 		right.add(rightUserViewButton);
 
-        //Add Operation Buttons
+        	//Add Operation Buttons
 		data = new ButtonPanel(new GridLayout(3, 2), tree.getRoot());
 		right.add(data);
 		main.add(right);
