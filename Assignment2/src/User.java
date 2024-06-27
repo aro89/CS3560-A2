@@ -27,7 +27,7 @@ public class User extends Subject implements CompositeNode, Observer {
 		userNode = new DefaultMutableTreeNode(this);
 		creationTime = System.currentTimeMillis();
 		lastUpdateTime = creationTime;
-    }
+    	}
     
 	@Override
 	public String getID() {
