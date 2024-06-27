@@ -26,7 +26,7 @@ public class TreePanel extends JPanel {
 		groupNode = root.getCompositeNode();
 		tree = new JTree(root.getCompositeNode());
     	
-    	//Sample Data
+    		//Sample Data
 		add(new User("John"));
 		add(new User("Bob"));
 		add(new User("Steve"));
@@ -37,10 +37,10 @@ public class TreePanel extends JPanel {
 		JLabel label = new JLabel("Tree View: ");
 		add(label);
 		add(view);
-    }
+    	}
     
-    public void setTreeListener()  {
-    	tree.addTreeSelectionListener((TreeSelectionListener) new TreeSelectionListener() {
+    	public void setTreeListener()  {
+    		tree.addTreeSelectionListener((TreeSelectionListener) new TreeSelectionListener() {
 			@Override
 			public void valueChanged(TreeSelectionEvent e) {
 				DefaultMutableTreeNode temp = 
@@ -57,25 +57,25 @@ public class TreePanel extends JPanel {
 					groupNode = temp;
 				}
 			}
-    	});
-    }
-    
-    public void add(CompositeNode cn) {
-  	DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
-    	if (((CompositeNode) groupNode.getUserObject()).addCompositeNode(cn)) {
-    		model.nodesWereInserted(groupNode, new int[] {groupNode.getChildCount() - 1});
-    		tree.scrollPathToVisible(new TreePath(cn.getCompositeNode().getPath()));
+    		});
     	}
-    }
     
-    public CompositeNode getNodeObject() {
-    	if (node == null) {
-    		return null;
+    	public void add(CompositeNode cn) {
+  		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+    		if (((CompositeNode) groupNode.getUserObject()).addCompositeNode(cn)) {
+    			model.nodesWereInserted(groupNode, new int[] {groupNode.getChildCount() - 1});
+    			tree.scrollPathToVisible(new TreePath(cn.getCompositeNode().getPath()));
+    		}
     	}
-    	return (CompositeNode) node.getUserObject();
-    }
     
-    public CompositeNode getRoot() {
-    	return this.root;
-    }
+    	public CompositeNode getNodeObject() {
+    		if (node == null) {
+    			return null;
+    		}
+    		return (CompositeNode) node.getUserObject();
+    	}
+    
+    	public CompositeNode getRoot() {
+    		return this.root;
+    	}
 }
